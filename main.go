@@ -76,8 +76,6 @@ func main() {
 			cd.DigitalButtons1 = uint8((highButtons&0b10)<<2) | uint8((highButtons & 0b100))
 			cd.Stick_R_X = uint8(clamp((state.RightAdj.X+1)/2) * 255)
 			cd.Stick_R_Y = uint8(clamp((-state.RightAdj.Y+1)/2) * 255)
-			fmt.Printf("%d %d\t", cd.Stick_R_X, cd.Stick_R_Y)
-			fmt.Printf("%b\t%b\n", state.Buttons>>8, state.Buttons&0xFF)
 		case sensor := <-csensor:
 			addr := sendTo
 			conn := server
